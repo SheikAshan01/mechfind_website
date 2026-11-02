@@ -217,3 +217,4 @@ export const howItWorksSteps = [
     iconName: "CheckCircle2",
   },
 ];
+

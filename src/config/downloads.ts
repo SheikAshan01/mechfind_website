@@ -31,3 +31,4 @@ export const downloadsConfig: Record<"android" | "ios", StoreDownload> = {
     versionNotice: "iOS 15.0+ compatible. Apple Maps & push notification support.",
   },
 };
+

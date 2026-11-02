@@ -70,3 +70,4 @@ export const faqsData: FAQItem[] = [
       "Yes. Mechanic partners have complete autonomy over their availability. You can toggle your status between Online and Offline at any time using the partner app, and define your preferred operating radius so you only receive jobs you can conveniently reach.",
   },
 ];
+

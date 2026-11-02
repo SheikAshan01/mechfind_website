@@ -124,3 +124,4 @@ export function MechanicFeaturesSection() {
     </section>
   );
 }
+
