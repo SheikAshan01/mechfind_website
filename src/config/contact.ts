@@ -4,8 +4,8 @@ export const contactConfig = {
   telLink: "tel:1234567890",
   email: "support@mechfind.com",
   contactEmail: "contact@mechfind.com",
-  operatingHours: "24/7 Breakdown Assistance Hotline",
-  supportAvailability: "Customer Care Team available 24 hours a day, 7 days a week for roadside emergencies.",
+  operatingHours: "Roadside Breakdown Assistance Hotline",
+  supportAvailability: "Customer Care Team available via phone hotline 1234567890 for roadside breakdown assistance.",
   backendSubmissionEnabled: false, // Set to true once production API endpoint is active
   notice: {
     title: "System Pre-Launch Notice",

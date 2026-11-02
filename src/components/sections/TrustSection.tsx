@@ -1,14 +1,27 @@
 "use client";
 
 import React from "react";
-import { Compass, Navigation2, ShieldCheck, Zap } from "lucide-react";
-import { trustValues } from "@/data/features";
+import {
+  Compass,
+  MapPin,
+  Wrench,
+  ShieldCheck,
+  FileText,
+  Clock,
+  Bell,
+  Headphones,
+} from "lucide-react";
+import { platformBenefits } from "@/data/features";
 
-const iconMap = {
-  Compass: Compass,
-  Navigation2: Navigation2,
-  ShieldCheck: ShieldCheck,
-  Zap: Zap,
+const iconMap: Record<string, React.ElementType> = {
+  Compass,
+  MapPin,
+  Wrench,
+  ShieldCheck,
+  FileText,
+  Clock,
+  Bell,
+  Headphones,
 };
 
 export function TrustSection() {
@@ -28,22 +41,31 @@ export function TrustSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {trustValues.map((item) => {
-            const Icon = iconMap[item.iconName as keyof typeof iconMap] || ShieldCheck;
+          {platformBenefits.map((item) => {
+            const Icon = iconMap[item.iconName] || ShieldCheck;
             return (
               <div
                 key={item.id}
-                className="bg-[#F7F8FA] border border-[#E6E9EF] hover:border-[#D6A84F]/60 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs group"
+                className="bg-[#F7F8FA] border border-[#E6E9EF] hover:border-[#142235]/40 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs group flex flex-col justify-between"
               >
-                <div className="w-12 h-12 rounded-xl bg-white border border-[#E6E9EF] flex items-center justify-center text-[#142235] mb-5 group-hover:bg-[#142235] group-hover:text-white transition-colors shadow-2xs">
-                  <Icon className="w-6 h-6 text-[#D6A84F]" />
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-[#E6E9EF] flex items-center justify-center text-[#142235] group-hover:bg-[#142235] group-hover:text-white transition-colors shadow-2xs">
+                      <Icon className="w-6 h-6 text-[#D6A84F]" />
+                    </div>
+                    {item.tag && (
+                      <span className="text-[10px] uppercase font-bold text-[#667085] bg-white px-2 py-0.5 rounded border border-[#E6E9EF]">
+                        {item.tag}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-base font-bold text-[#142235] mb-2 font-heading">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#667085] leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#142235] mb-2 font-heading">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#667085] leading-relaxed">
-                  {item.description}
-                </p>
               </div>
             );
           })}

@@ -15,7 +15,7 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: `${siteConfig.name} – Your Mechanic, Just Around the Corner`,
   description:
-    "Breakdowns happen. Finding help shouldn't. Discover nearby mechanics, request roadside assistance and stay connected with MECHFIND. Fast roadside assistance for cars and bikes.",
+    "Find nearby mechanics, request vehicle assistance and get help when your bike or car breaks down. Location-based breakdown assistance with MECHFIND.",
 };
 
 export default function HomePage() {

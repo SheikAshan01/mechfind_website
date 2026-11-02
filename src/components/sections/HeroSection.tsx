@@ -45,9 +45,11 @@ export function HeroSection() {
               className="space-y-1"
             >
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#142235] tracking-tight leading-[1.15] font-heading">
-                Breakdowns Happen.
+                Vehicle Breakdown?
                 <br />
-                <span className="text-[#D6A84F]">Finding Help Shouldn&apos;t.</span>
+                Find Your Mechanic.
+                <br />
+                <span className="text-[#D6A84F]">Get Back on the Road.</span>
               </h1>
             </motion.div>
 
@@ -58,7 +60,7 @@ export function HeroSection() {
               transition={{ duration: 0.45, delay: 0.2 }}
               className="text-base sm:text-lg text-[#667085] max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Discover nearby mechanics, request roadside assistance and stay connected with MECHFIND. Fast, location-based support for cars and motorcycles.
+              Find nearby mechanics, request vehicle assistance and get help when your bike or car breaks down.
             </motion.p>
 
             {/* CTAs */}

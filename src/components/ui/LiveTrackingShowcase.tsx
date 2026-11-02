@@ -35,7 +35,7 @@ export function LiveTrackingShowcase() {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs uppercase font-extrabold tracking-wider text-[#D6A84F]">
-                Illustrative Product Preview
+                Illustrative Tracking Demo
               </span>
             </div>
             <p className="text-xs text-[#CBD5E1]">
@@ -220,7 +220,7 @@ export function LiveTrackingShowcase() {
       <div className="bg-[#F7F8FA] border-t border-[#E6E9EF] px-5 py-3 flex items-center gap-2.5 text-xs text-[#667085]">
         <Info className="w-4 h-4 text-[#D6A84F] shrink-0" />
         <span>
-          <strong>Product Illustration:</strong> This preview visualizes the live mechanic routing and estimated arrival interface featured in the MECHFIND mobile application.
+          <strong>Illustrative Tracking Demo:</strong> This preview visualizes the live mechanic routing and estimated arrival interface featured in the MECHFIND mobile application.
         </span>
       </div>
     </div>

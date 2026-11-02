@@ -42,6 +42,17 @@ test.describe("MECHFIND Official Website Verification", () => {
     await expect(logo).toBeVisible();
     const src = await logo.getAttribute("src");
     expect(src).toContain("mechfind-logo");
+
+    // Verify hero headline matches specification
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Vehicle Breakdown?");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Find Your Mechanic.");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Get Back on the Road.");
+
+    // Verify Illustrative Tracking Demo label
+    await expect(page.getByText("Illustrative Tracking Demo").first()).toBeVisible();
+
+    // Verify Mechanic CTA
+    await expect(page.getByRole("link", { name: "Join as a Mechanic Partner" })).toBeVisible();
   });
 
   test("3. App Download Coming Soon modal opens and functions properly", async ({

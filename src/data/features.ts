@@ -7,6 +7,65 @@ export interface FeatureItem {
   highlight?: boolean;
 }
 
+export const platformBenefits: FeatureItem[] = [
+  {
+    id: "benefit-nearby",
+    title: "Nearby Mechanics",
+    description: "Discover verified roadside mechanics positioned closest to your breakdown point to minimize waiting times.",
+    iconName: "Compass",
+    tag: "Nearby",
+  },
+  {
+    id: "benefit-location",
+    title: "Location-Based Discovery",
+    description: "Automatic geolocation pinpoints your exact breakdown spot, whether stranded on a busy city avenue or remote highway.",
+    iconName: "MapPin",
+    tag: "Discovery",
+  },
+  {
+    id: "benefit-breakdown",
+    title: "Breakdown Assistance",
+    description: "Specialized roadside help for punctured tires, dead batteries, engine trouble, fuel delivery, and minor diagnostics.",
+    iconName: "Wrench",
+    tag: "Assistance",
+  },
+  {
+    id: "benefit-verification",
+    title: "Mechanic Verification",
+    description: "Every technician on our network undergoes credential authentication and background checks for trusted service.",
+    iconName: "ShieldCheck",
+    tag: "Verified",
+  },
+  {
+    id: "benefit-requests",
+    title: "Service Request Management",
+    description: "Submit request details, describe vehicle symptoms with ease, and monitor status updates without tedious calls.",
+    iconName: "FileText",
+    tag: "Requests",
+  },
+  {
+    id: "benefit-history",
+    title: "Service History",
+    description: "Review comprehensive past breakdown repair logs, digital receipts, and technician details directly in your account.",
+    iconName: "Clock",
+    tag: "History",
+  },
+  {
+    id: "benefit-notifications",
+    title: "Notifications",
+    description: "Get real-time alerts as your mechanic accepts your dispatch, heads your way, and arrives on site.",
+    iconName: "Bell",
+    tag: "Alerts",
+  },
+  {
+    id: "benefit-support",
+    title: "Customer Support",
+    description: "Direct access to our dedicated customer care hotline whenever you require roadside assistance guidance.",
+    iconName: "Headphones",
+    tag: "Support",
+  },
+];
+
 export const trustValues = [
   {
     id: "nearby",

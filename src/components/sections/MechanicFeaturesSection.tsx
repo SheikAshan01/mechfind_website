@@ -107,7 +107,7 @@ export function MechanicFeaturesSection() {
                 className="inline-flex items-center gap-2 bg-[#D6A84F] hover:bg-[#C59840] text-[#142235] font-bold text-sm px-6 py-3.5 rounded-xl transition-all shadow-xs cursor-pointer active:scale-98"
               >
                 <Wrench className="w-4 h-4" />
-                <span>Become a Mechanic Partner</span>
+                <span>Join as a Mechanic Partner</span>
               </Link>
 
               <Link
