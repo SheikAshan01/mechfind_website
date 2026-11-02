@@ -18,65 +18,66 @@ import {
 import { mechanicFeatures } from "@/data/features";
 
 const iconMap: Record<string, React.ElementType> = {
-  UserCheck: UserCheck,
-  Briefcase: Briefcase,
-  Power: Power,
-  Radio: Radio,
-  CheckSquare: CheckSquare,
-  Navigation: Navigation,
-  ClipboardList: ClipboardList,
-  Star: Star,
+  UserCheck,
+  Briefcase,
+  Power,
+  Radio,
+  CheckSquare,
+  Navigation,
+  ClipboardList,
+  Star,
 };
 
 export function MechanicFeaturesSection() {
   return (
-    <section className="py-20 sm:py-28 bg-[#080808] border-t border-[#1C1C1C]">
+    <section className="py-20 sm:py-24 bg-[#EEF1F5] border-b border-[#E6E9EF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div>
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#FFD400] bg-[#FFD400]/10 px-3 py-1 rounded-full border border-[#FFD400]/20">
-              For Auto Professionals & Garages
+            <span className="text-xs uppercase font-extrabold tracking-widest text-[#D6A84F] bg-[#FBF4E7] px-3.5 py-1 rounded-full border border-[#D6A84F]/25">
+              For Technicians & Garages
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-3 tracking-tight">
-              Mechanic Partner Features
+            <h2 className="text-2xl sm:text-4xl font-black text-[#142235] mt-3 tracking-tight font-heading">
+              Grow Your Automotive Business with MECHFIND.
             </h2>
-            <p className="text-sm sm:text-base text-neutral-400 mt-2 max-w-xl">
-              Powerful tools built for independent technicians and auto workshops to expand their reach and manage breakdown jobs efficiently.
+            <p className="text-sm sm:text-base text-[#667085] mt-2 max-w-xl">
+              Dedicated partner capabilities built for workshops and mobile roadside mechanics to receive nearby service requests.
             </p>
           </div>
 
           <Link
             href="/mechanics"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#FFD400] hover:text-[#E5BE00] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#142235] hover:text-[#D6A84F] transition-colors"
           >
             <span>Learn More About Partnering</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {/* 8 Feature Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {mechanicFeatures.map((item) => {
             const Icon = iconMap[item.iconName] || Wrench;
             return (
               <div
                 key={item.id}
-                className="bg-[#121212] border border-[#242424] hover:border-[#FFD400]/40 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl group"
+                className="bg-white border border-[#E6E9EF] hover:border-[#142235]/40 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs group"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] border border-[#2B2B2B] flex items-center justify-center text-[#FFD400] group-hover:bg-[#FFD400] group-hover:text-[#080808] transition-colors">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-[#F7F8FA] border border-[#E6E9EF] flex items-center justify-center text-[#142235] group-hover:bg-[#142235] group-hover:text-white transition-colors">
+                    <Icon className="w-5 h-5 text-[#D6A84F]" />
                   </div>
                   {item.tag && (
-                    <span className="text-[10px] uppercase font-bold text-neutral-400 bg-white/5 px-2 py-0.5 rounded">
+                    <span className="text-[10px] uppercase font-bold text-[#667085] bg-[#F7F8FA] px-2 py-0.5 rounded border border-[#E6E9EF]">
                       {item.tag}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#FFD400] transition-colors">
+                <h3 className="text-base font-bold text-[#142235] mb-2 font-heading">
                   {item.title}
                 </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">
+                <p className="text-xs text-[#667085] leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -84,36 +85,34 @@ export function MechanicFeaturesSection() {
           })}
         </div>
 
-        {/* Dedicated Partner CTA Card */}
-        <div className="bg-gradient-to-r from-[#141414] via-[#1A1A1A] to-[#141414] border border-[#2E2E2E] rounded-3xl p-8 sm:p-12 relative overflow-hidden">
-          <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-[#FFD400]/[0.03] blur-3xl pointer-events-none" />
-
+        {/* Distinct Partner CTA Card */}
+        <div className="bg-[#142235] text-white border border-[#1D3048] rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-sm">
           <div className="max-w-3xl space-y-4">
-            <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-[#FFD400] bg-[#FFD400]/10 px-3 py-1 rounded-full border border-[#FFD400]/25">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Grow Your Automotive Business
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#D6A84F] bg-[#1D3048] px-3.5 py-1 rounded-full border border-[#2D4565]">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#D6A84F]" />
+              Partner Network
             </span>
 
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-              Are You an Experienced Mechanic or Garage Owner?
+            <h3 className="text-2xl sm:text-3xl font-black text-white font-heading">
+              Ready to Expand Your Service Radius?
             </h3>
 
-            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-              Join MECHFIND to receive direct breakdown requests from motorists in your vicinity. Set your own working hours, accept only the jobs you want, and build a stellar local reputation.
+            <p className="text-sm sm:text-base text-[#CBD5E1] leading-relaxed">
+              Connect with stranded motorists in your immediate area. Set your availability switch online when ready, review request details, and navigate directly to jobs.
             </p>
 
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 href="/mechanics"
-                className="inline-flex items-center gap-2 bg-[#FFD400] hover:bg-[#E5BE00] text-[#080808] font-bold text-sm px-6 py-3.5 rounded-xl transition-all shadow-[0_2px_15px_-3px_rgba(255,212,0,0.35)]"
+                className="inline-flex items-center gap-2 bg-[#D6A84F] hover:bg-[#C59840] text-[#142235] font-bold text-sm px-6 py-3.5 rounded-xl transition-all shadow-xs cursor-pointer active:scale-98"
               >
                 <Wrench className="w-4 h-4" />
-                <span>Join as a Mechanic Partner</span>
+                <span>Become a Mechanic Partner</span>
               </Link>
 
               <Link
                 href="/tutorials"
-                className="inline-flex items-center gap-2 bg-[#1C1C1C] hover:bg-[#252525] text-white border border-[#333333] font-semibold text-sm px-5 py-3.5 rounded-xl transition-colors"
+                className="inline-flex items-center gap-2 bg-[#1D3048] hover:bg-[#253D5C] text-white border border-[#2D4565] font-semibold text-sm px-5 py-3.5 rounded-xl transition-colors"
               >
                 <span>View Mechanic Tutorials</span>
               </Link>
@@ -124,4 +123,3 @@ export function MechanicFeaturesSection() {
     </section>
   );
 }
-

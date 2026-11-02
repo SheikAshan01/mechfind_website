@@ -9,13 +9,14 @@ interface BrandLogoProps {
   priority?: boolean;
   withLink?: boolean;
   showText?: boolean;
+  container?: "none" | "light" | "navy";
 }
 
 const sizeMap = {
-  sm: { height: 36, width: 47, textClass: "text-lg" },
-  md: { height: 48, width: 63, textClass: "text-xl" },
-  lg: { height: 60, width: 79, textClass: "text-2xl" },
-  xl: { height: 84, width: 110, textClass: "text-3xl" },
+  sm: { height: 36, textClass: "text-lg" },
+  md: { height: 44, textClass: "text-xl" },
+  lg: { height: 56, textClass: "text-2xl" },
+  xl: { height: 76, textClass: "text-3xl" },
 };
 
 export function BrandLogo({
@@ -24,12 +25,19 @@ export function BrandLogo({
   priority = false,
   withLink = true,
   showText = false,
+  container = "none",
 }: BrandLogoProps) {
   const { height, textClass } = sizeMap[size];
 
+  const containerClasses = {
+    none: "",
+    light: "bg-white p-1.5 rounded-xl border border-[#E6E9EF] shadow-2xs",
+    navy: "bg-[#142235] p-2 rounded-xl border border-[#1D3048] shadow-sm",
+  };
+
   const content = (
     <div className={cn("inline-flex items-center gap-3 select-none", className)}>
-      <div className="relative flex items-center justify-center">
+      <div className={cn("relative flex items-center justify-center transition-transform duration-200", containerClasses[container])}>
         {/* Exact uploaded logo strictly preserving proportions (1024x781) */}
         <Image
           src="/images/mechfind-logo.png"
@@ -42,16 +50,16 @@ export function BrandLogo({
             width: "auto",
             aspectRatio: "1024 / 781",
           }}
-          className="object-contain drop-shadow-sm transition-transform duration-200"
+          className="object-contain drop-shadow-xs"
         />
       </div>
       {showText && (
         <div className="flex flex-col">
-          <span className={cn("font-extrabold tracking-tight text-white leading-none", textClass)}>
-            MECH<span className="text-[#FFD400]">FIND</span>
+          <span className={cn("font-extrabold tracking-tight text-[#142235] leading-none", textClass)}>
+            MECH<span className="text-[#D6A84F]">FIND</span>
           </span>
-          <span className="text-[10px] tracking-wider uppercase text-neutral-400 mt-1 font-medium">
-            Roadside Assistance
+          <span className="text-[10px] tracking-wider uppercase text-[#667085] mt-1 font-semibold">
+            Automotive Assistance
           </span>
         </div>
       )}
@@ -62,7 +70,7 @@ export function BrandLogo({
     return (
       <Link
         href="/"
-        className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD400] rounded-lg transition-opacity hover:opacity-95"
+        className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[#142235] rounded-xl transition-opacity hover:opacity-95"
         aria-label="MECHFIND Home"
       >
         {content}

@@ -20,8 +20,8 @@ export function CustomerCareForm() {
 
   const categories = [
     "Breakdown Assistance Inquiry",
-    "Active Roadside Emergency",
-    "App Technical Problem",
+    "Roadside Support Question",
+    "App Technical Inquiry",
     "Mechanic Partner Inquiry",
     "Feedback & Service Suggestion",
     "Billing or Invoice Query",
@@ -65,29 +65,26 @@ export function CustomerCareForm() {
 
     setIsSubmitting(true);
 
-    // Simulate form submission attempt to demonstrate real validation & staging state
     setTimeout(() => {
       setIsSubmitting(false);
 
       if (contactConfig.backendSubmissionEnabled) {
         setSubmissionStatus("success");
       } else {
-        // Honesty disclosure required by prompt:
-        // "If backend integration is not configured, do not falsely claim that support requests were submitted.
-        // Show a clear message that the support submission service is not yet connected."
+        // Honesty disclosure required by prompt
         setSubmissionStatus("notice");
       }
     }, 600);
   };
 
   return (
-    <div className="bg-[#121212] border border-[#262626] rounded-3xl p-6 sm:p-9 shadow-xl relative overflow-hidden">
+    <div className="bg-white border border-[#E6E9EF] rounded-3xl p-6 sm:p-9 shadow-sm relative overflow-hidden">
       <div className="mb-6">
-        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+        <h3 className="text-xl sm:text-2xl font-black text-[#142235] mb-2 font-heading">
           Submit a Customer Care Request
         </h3>
-        <p className="text-sm text-neutral-400">
-          Fill out the details below. Our support team reviews all incoming inquiries promptly.
+        <p className="text-sm text-[#667085]">
+          Fill out the details below. Our support team reviews all incoming inquiries.
         </p>
       </div>
 
@@ -95,57 +92,57 @@ export function CustomerCareForm() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-[#1C1608] border border-[#FFD400]/40 rounded-2xl p-6 space-y-4"
+          className="bg-[#FBF4E7] border border-[#D6A84F]/40 rounded-2xl p-6 space-y-4"
         >
           <div className="flex items-start gap-3">
-            <div className="p-2.5 rounded-xl bg-[#FFD400]/15 text-[#FFD400] shrink-0 mt-0.5">
+            <div className="p-2.5 rounded-xl bg-white text-[#D6A84F] shrink-0 mt-0.5 border border-[#D6A84F]/30 shadow-2xs">
               <ShieldAlert className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-base font-bold text-white mb-1">
+              <h4 className="text-base font-bold text-[#142235] mb-1 font-heading">
                 Notice: Support Submission Service Not Yet Connected
               </h4>
-              <p className="text-sm text-neutral-300 leading-relaxed mb-3">
+              <p className="text-sm text-[#475467] leading-relaxed mb-3">
                 {contactConfig.notice.message}
               </p>
-              <p className="text-xs text-neutral-400">
-                Form validation for your entry ({formData.name}, {formData.mobile}, {formData.category}) was verified successfully, but our production API dispatch gateway is currently in pre-launch staging.
+              <p className="text-xs text-[#667085]">
+                Form validation for your entry ({formData.name}, {formData.mobile}, {formData.category}) passed successfully. For urgent roadside assistance, please contact our direct hotline.
               </p>
             </div>
           </div>
 
-          <div className="pt-3 border-t border-[#332A10] flex flex-wrap items-center gap-3">
+          <div className="pt-3 border-t border-[#D6A84F]/20 flex flex-wrap items-center gap-3">
             <a
               href={contactConfig.telLink}
-              className="inline-flex items-center gap-2 bg-[#FFD400] hover:bg-[#E5BE00] text-[#080808] font-bold text-sm px-5 py-2.5 rounded-xl transition-all"
+              className="inline-flex items-center gap-2 bg-[#142235] hover:bg-[#1D3048] text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all shadow-xs cursor-pointer"
             >
-              <PhoneCall className="w-4 h-4" />
+              <PhoneCall className="w-4 h-4 text-[#D6A84F]" />
               <span>Call Direct Hotline ({contactConfig.phone})</span>
             </a>
 
             <button
               type="button"
               onClick={() => setSubmissionStatus("idle")}
-              className="px-4 py-2.5 rounded-xl text-xs font-semibold bg-[#222222] hover:bg-[#2d2d2d] text-neutral-300 hover:text-white transition-colors"
+              className="px-4 py-2.5 rounded-xl text-xs font-semibold bg-white hover:bg-[#F7F8FA] text-[#142235] border border-[#E6E9EF] transition-colors cursor-pointer"
             >
               Edit Form Details
             </button>
           </div>
         </motion.div>
       ) : submissionStatus === "success" ? (
-        <div className="bg-[#142316] border border-[#2e5932] rounded-2xl p-6 text-center">
-          <CheckCircle className="w-10 h-10 text-[#4ade80] mx-auto mb-2" />
-          <h4 className="text-lg font-bold text-white mb-1">Request Received</h4>
-          <p className="text-sm text-neutral-300">
+        <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-2xl p-6 text-center">
+          <CheckCircle className="w-10 h-10 text-[#16A34A] mx-auto mb-2" />
+          <h4 className="text-lg font-bold text-[#142235] mb-1 font-heading">Request Received</h4>
+          <p className="text-sm text-[#475467]">
             A customer care representative will contact you at {formData.mobile}.
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} noValidate className="space-y-5">
+        <form onSubmit={handleSubmit} noValidate className="space-y-4">
           {/* Name Field */}
           <div>
-            <label htmlFor="care-name" className="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
-              Full Name <span className="text-[#FFD400]">*</span>
+            <label htmlFor="care-name" className="block text-xs font-semibold text-[#142235] uppercase tracking-wider mb-1.5">
+              Full Name <span className="text-[#D6A84F]">*</span>
             </label>
             <input
               id="care-name"
@@ -156,20 +153,20 @@ export function CustomerCareForm() {
                 if (errors.name) setErrors({ ...errors, name: "" });
               }}
               placeholder="e.g. Alexander Smith"
-              className={`w-full bg-[#181818] border rounded-xl py-3 px-4 text-sm text-white placeholder-neutral-500 outline-none transition-all ${
+              className={`w-full bg-[#F7F8FA] border rounded-xl py-2.5 px-4 text-sm text-[#172334] placeholder-[#98A2B3] outline-none transition-all ${
                 errors.name
-                  ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                  : "border-[#2b2b2b] focus:border-[#FFD400] focus:ring-1 focus:ring-[#FFD400]"
+                  ? "border-red-500 focus:bg-white focus:ring-1 focus:ring-red-500"
+                  : "border-[#E6E9EF] focus:bg-white focus:border-[#142235] focus:ring-1 focus:ring-[#142235]"
               }`}
             />
-            {errors.name && <p className="text-xs text-red-400 mt-1.5">{errors.name}</p>}
+            {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
           </div>
 
           {/* Grid: Mobile + Email */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="care-mobile" className="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
-                Mobile Number <span className="text-[#FFD400]">*</span>
+              <label htmlFor="care-mobile" className="block text-xs font-semibold text-[#142235] uppercase tracking-wider mb-1.5">
+                Mobile Number <span className="text-[#D6A84F]">*</span>
               </label>
               <input
                 id="care-mobile"
@@ -180,18 +177,18 @@ export function CustomerCareForm() {
                   if (errors.mobile) setErrors({ ...errors, mobile: "" });
                 }}
                 placeholder="e.g. 1234567890"
-                className={`w-full bg-[#181818] border rounded-xl py-3 px-4 text-sm text-white placeholder-neutral-500 outline-none transition-all ${
+                className={`w-full bg-[#F7F8FA] border rounded-xl py-2.5 px-4 text-sm text-[#172334] placeholder-[#98A2B3] outline-none transition-all ${
                   errors.mobile
-                    ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                    : "border-[#2b2b2b] focus:border-[#FFD400] focus:ring-1 focus:ring-[#FFD400]"
+                    ? "border-red-500 focus:bg-white focus:ring-1 focus:ring-red-500"
+                    : "border-[#E6E9EF] focus:bg-white focus:border-[#142235] focus:ring-1 focus:ring-[#142235]"
                 }`}
               />
-              {errors.mobile && <p className="text-xs text-red-400 mt-1.5">{errors.mobile}</p>}
+              {errors.mobile && <p className="text-xs text-red-500 mt-1">{errors.mobile}</p>}
             </div>
 
             <div>
-              <label htmlFor="care-email" className="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
-                Email Address <span className="text-[#FFD400]">*</span>
+              <label htmlFor="care-email" className="block text-xs font-semibold text-[#142235] uppercase tracking-wider mb-1.5">
+                Email Address <span className="text-[#D6A84F]">*</span>
               </label>
               <input
                 id="care-email"
@@ -202,29 +199,29 @@ export function CustomerCareForm() {
                   if (errors.email) setErrors({ ...errors, email: "" });
                 }}
                 placeholder="e.g. alex@example.com"
-                className={`w-full bg-[#181818] border rounded-xl py-3 px-4 text-sm text-white placeholder-neutral-500 outline-none transition-all ${
+                className={`w-full bg-[#F7F8FA] border rounded-xl py-2.5 px-4 text-sm text-[#172334] placeholder-[#98A2B3] outline-none transition-all ${
                   errors.email
-                    ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                    : "border-[#2b2b2b] focus:border-[#FFD400] focus:ring-1 focus:ring-[#FFD400]"
+                    ? "border-red-500 focus:bg-white focus:ring-1 focus:ring-red-500"
+                    : "border-[#E6E9EF] focus:bg-white focus:border-[#142235] focus:ring-1 focus:ring-[#142235]"
                 }`}
               />
-              {errors.email && <p className="text-xs text-red-400 mt-1.5">{errors.email}</p>}
+              {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
             </div>
           </div>
 
           {/* Issue Category Dropdown */}
           <div>
-            <label htmlFor="care-category" className="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
-              Issue Category <span className="text-[#FFD400]">*</span>
+            <label htmlFor="care-category" className="block text-xs font-semibold text-[#142235] uppercase tracking-wider mb-1.5">
+              Issue Category <span className="text-[#D6A84F]">*</span>
             </label>
             <select
               id="care-category"
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-              className="w-full bg-[#181818] border border-[#2b2b2b] focus:border-[#FFD400] focus:ring-1 focus:ring-[#FFD400] rounded-xl py-3 px-4 text-sm text-white outline-none transition-all cursor-pointer"
+              className="w-full bg-[#F7F8FA] border border-[#E6E9EF] focus:bg-white focus:border-[#142235] focus:ring-1 focus:ring-[#142235] rounded-xl py-2.5 px-4 text-sm text-[#172334] outline-none transition-all cursor-pointer"
             >
               {categories.map((cat) => (
-                <option key={cat} value={cat} className="bg-[#181818] text-white">
+                <option key={cat} value={cat}>
                   {cat}
                 </option>
               ))}
@@ -233,8 +230,8 @@ export function CustomerCareForm() {
 
           {/* Message Field */}
           <div>
-            <label htmlFor="care-message" className="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
-              Message / Breakdown Details <span className="text-[#FFD400]">*</span>
+            <label htmlFor="care-message" className="block text-xs font-semibold text-[#142235] uppercase tracking-wider mb-1.5">
+              Message / Breakdown Details <span className="text-[#D6A84F]">*</span>
             </label>
             <textarea
               id="care-message"
@@ -244,30 +241,30 @@ export function CustomerCareForm() {
                 setFormData({ ...formData, message: e.target.value });
                 if (errors.message) setErrors({ ...errors, message: "" });
               }}
-              placeholder="Please describe what happened, your vehicle type (car/bike), and any location details if applicable..."
-              className={`w-full bg-[#181818] border rounded-xl py-3 px-4 text-sm text-white placeholder-neutral-500 outline-none transition-all resize-y ${
+              placeholder="Describe your issue, vehicle type (bike/car), or question..."
+              className={`w-full bg-[#F7F8FA] border rounded-xl py-2.5 px-4 text-sm text-[#172334] placeholder-[#98A2B3] outline-none transition-all resize-y ${
                 errors.message
-                  ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                  : "border-[#2b2b2b] focus:border-[#FFD400] focus:ring-1 focus:ring-[#FFD400]"
+                  ? "border-red-500 focus:bg-white focus:ring-1 focus:ring-red-500"
+                  : "border-[#E6E9EF] focus:bg-white focus:border-[#142235] focus:ring-1 focus:ring-[#142235]"
               }`}
             />
-            {errors.message && <p className="text-xs text-red-400 mt-1.5">{errors.message}</p>}
+            {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full flex items-center justify-center gap-2 bg-[#FFD400] hover:bg-[#E5BE00] text-[#080808] font-bold py-3.5 px-6 rounded-xl text-sm transition-all shadow-[0_2px_15px_-3px_rgba(255,212,0,0.35)] cursor-pointer disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 bg-[#142235] hover:bg-[#1D3048] text-white font-semibold py-3 px-6 rounded-xl text-sm transition-all shadow-xs cursor-pointer disabled:opacity-50"
           >
             {isSubmitting ? (
               <span className="flex items-center gap-2">
-                <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 Validating Request...
               </span>
             ) : (
               <>
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 text-[#D6A84F]" />
                 <span>Submit Customer Care Request</span>
               </>
             )}

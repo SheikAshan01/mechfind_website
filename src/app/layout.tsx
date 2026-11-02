@@ -1,10 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DownloadModalProvider } from "@/components/ui/DownloadModalContext";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,7 +22,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#080808",
+  themeColor: "#142235",
 };
 
 export const metadata: Metadata = {
@@ -80,8 +86,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full dark`}>
-      <body className="min-h-full flex flex-col bg-[#080808] text-white antialiased selection:bg-[#FFD400] selection:text-[#080808]">
+    <html
+      lang="en"
+      className={`${inter.variable} ${manrope.variable} h-full`}
+    >
+      <body className="min-h-full flex flex-col bg-[#F7F8FA] text-[#172334] antialiased selection:bg-[#D6A84F]/30 selection:text-[#142235]">
         <DownloadModalProvider>
           <Navbar />
           <main className="flex-1 flex flex-col">{children}</main>

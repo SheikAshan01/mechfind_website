@@ -40,7 +40,7 @@ export function Accordion({
   };
 
   return (
-    <div className={cn("space-y-3", className)}>
+    <div className={cn("space-y-3.5", className)}>
       {items.map((item) => {
         const isOpen = openIds.includes(item.id);
         const headerId = `accordion-header-${item.id}`;
@@ -52,8 +52,8 @@ export function Accordion({
             className={cn(
               "rounded-2xl border transition-all duration-200 overflow-hidden",
               isOpen
-                ? "bg-[#141414] border-[#FFD400]/40 shadow-[0_4px_20px_-4px_rgba(255,212,0,0.1)]"
-                : "bg-[#121212] border-[#252525] hover:border-[#333333] hover:bg-[#151515]"
+                ? "bg-white border-[#142235]/30 shadow-xs"
+                : "bg-white border-[#E6E9EF] hover:border-[#D0D5DD] hover:shadow-2xs"
             )}
           >
             <button
@@ -62,15 +62,15 @@ export function Accordion({
               aria-expanded={isOpen}
               aria-controls={panelId}
               onClick={() => toggleItem(item.id)}
-              className="w-full py-5 px-6 flex items-center justify-between text-left gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD400]"
+              className="w-full py-4.5 sm:py-5 px-5 sm:px-6 flex items-center justify-between text-left gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#142235]"
             >
               <div className="flex items-center gap-3">
                 {item.category && (
-                  <span className="hidden sm:inline-block text-[11px] font-semibold uppercase tracking-wider text-[#FFD400] bg-[#FFD400]/10 px-2 py-0.5 rounded border border-[#FFD400]/20">
+                  <span className="hidden sm:inline-block text-[11px] font-bold uppercase tracking-wider text-[#D6A84F] bg-[#FBF4E7] px-2.5 py-0.5 rounded-full border border-[#D6A84F]/25">
                     {item.category}
                   </span>
                 )}
-                <span className="font-semibold text-white text-base sm:text-lg">
+                <span className="font-bold text-[#142235] text-base sm:text-lg font-heading">
                   {item.question}
                 </span>
               </div>
@@ -78,8 +78,10 @@ export function Accordion({
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
                 className={cn(
-                  "p-1.5 rounded-lg shrink-0 transition-colors",
-                  isOpen ? "bg-[#FFD400] text-[#080808]" : "text-neutral-400 bg-white/5"
+                  "p-1.5 rounded-xl shrink-0 transition-colors",
+                  isOpen
+                    ? "bg-[#142235] text-white"
+                    : "text-[#667085] bg-[#F7F8FA]"
                 )}
               >
                 <ChevronDown className="w-4 h-4" />
@@ -97,7 +99,7 @@ export function Accordion({
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                 >
-                  <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-neutral-300 leading-relaxed border-t border-[#222222]">
+                  <div className="px-5 sm:px-6 pb-5 pt-1 text-sm sm:text-base text-[#667085] leading-relaxed border-t border-[#F2F4F7]">
                     {item.answer}
                   </div>
                 </motion.div>
@@ -109,4 +111,3 @@ export function Accordion({
     </div>
   );
 }
-

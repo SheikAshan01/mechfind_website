@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "accent";
+  variant?: "primary" | "secondary" | "gold" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string;
   isExternal?: boolean;
@@ -26,7 +26,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] disabled:opacity-50 disabled:cursor-not-allowed select-none active:scale-[0.98]";
+    "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#142235] disabled:opacity-50 disabled:cursor-not-allowed select-none active:scale-[0.98]";
 
   const sizeStyles = {
     sm: "text-xs px-3.5 py-2 gap-1.5",
@@ -36,15 +36,15 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#FFD400] text-[#080808] hover:bg-[#E5BE00] focus-visible:ring-[#FFD400] shadow-[0_2px_15px_-3px_rgba(255,212,0,0.35)] hover:shadow-[0_4px_20px_-3px_rgba(255,212,0,0.5)] font-bold",
+      "bg-[#142235] text-white hover:bg-[#1D3048] shadow-sm hover:shadow-md",
     secondary:
-      "bg-[#141414] text-white hover:bg-[#1E1E1E] border border-[#292929] hover:border-[#383838] focus-visible:ring-white/50",
+      "bg-white text-[#172334] border border-[#E6E9EF] hover:bg-[#F7F8FA] hover:border-[#D0D5DD] shadow-2xs",
+    gold:
+      "bg-[#D6A84F] text-[#142235] hover:bg-[#C59840] shadow-sm font-bold",
     outline:
-      "bg-transparent text-[#FFD400] border border-[#FFD400]/40 hover:border-[#FFD400] hover:bg-[#FFD400]/10 focus-visible:ring-[#FFD400]",
+      "bg-transparent text-[#142235] border border-[#142235]/30 hover:border-[#142235] hover:bg-[#142235]/5",
     ghost:
-      "bg-transparent text-neutral-300 hover:text-white hover:bg-white/5 focus-visible:ring-white/30",
-    accent:
-      "bg-[#141414] text-[#FFD400] border border-[#FFD400]/30 hover:border-[#FFD400]/70 hover:bg-[#1A1A1A] focus-visible:ring-[#FFD400]",
+      "bg-transparent text-[#172334] hover:text-[#142235] hover:bg-[#EEF1F5]",
   };
 
   const combinedClasses = cn(
@@ -87,4 +87,3 @@ export function Button({
     </button>
   );
 }
-

@@ -55,8 +55,8 @@ test.describe("MECHFIND Official Website Verification", () => {
     // Verify modal is visible
     const modal = page.getByRole("dialog");
     await expect(modal).toBeVisible();
-    await expect(modal).toContainText("MECHFIND Mobile App");
-    await expect(modal).toContainText("Coming Soon to Stores");
+    await expect(modal).toContainText("Roadside Assistance, Within Reach.");
+    await expect(modal).toContainText("Coming Soon");
 
     // Close modal
     const closeBtn = page.getByLabel("Close download dialog");
@@ -122,15 +122,19 @@ test.describe("MECHFIND Official Website Verification", () => {
     ).toBeVisible();
   });
 
-  test("6. Responsive Viewports Test - Zero Horizontal Overflow", async ({
+  test("6. Responsive Viewports Test - Zero Horizontal Overflow across all requested screen sizes", async ({
     page,
   }) => {
     const viewports = [
       { width: 320, height: 600, label: "320px mobile" },
+      { width: 360, height: 640, label: "360px mobile" },
       { width: 375, height: 667, label: "375px mobile" },
-      { width: 425, height: 800, label: "425px mobile" },
+      { width: 390, height: 844, label: "390px mobile" },
+      { width: 414, height: 896, label: "414px mobile" },
+      { width: 430, height: 932, label: "430px mobile" },
       { width: 768, height: 1024, label: "768px tablet" },
       { width: 1024, height: 768, label: "1024px laptop" },
+      { width: 1280, height: 800, label: "1280px desktop" },
       { width: 1440, height: 900, label: "1440px desktop" },
       { width: 1920, height: 1080, label: "1920px large desktop" },
     ];
@@ -153,4 +157,3 @@ test.describe("MECHFIND Official Website Verification", () => {
     }
   });
 });
-

@@ -16,36 +16,36 @@ import {
 import { customerFeatures } from "@/data/features";
 
 const iconMap: Record<string, React.ElementType> = {
-  MapPin: MapPin,
-  Wrench: Wrench,
-  Crosshair: Crosshair,
-  Activity: Activity,
-  FileText: FileText,
-  Clock: Clock,
-  Bell: Bell,
-  Headphones: Headphones,
+  MapPin,
+  Wrench,
+  Crosshair,
+  Activity,
+  FileText,
+  Clock,
+  Bell,
+  Headphones,
 };
 
 export function CustomerFeaturesSection() {
   return (
-    <section className="py-20 sm:py-28 bg-[#0D0D0D] border-t border-[#1C1C1C]">
+    <section className="py-20 sm:py-24 bg-white border-b border-[#E6E9EF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div>
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#FFD400] bg-[#FFD400]/10 px-3 py-1 rounded-full border border-[#FFD400]/20">
+            <span className="text-xs uppercase font-extrabold tracking-widest text-[#D6A84F] bg-[#FBF4E7] px-3.5 py-1 rounded-full border border-[#D6A84F]/25">
               For Drivers & Riders
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-3 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-[#142235] mt-3 tracking-tight font-heading">
               Customer Features
             </h2>
-            <p className="text-sm sm:text-base text-neutral-400 mt-2 max-w-xl">
-              Everything you need when your car or bike requires prompt, reliable roadside assistance.
+            <p className="text-sm sm:text-base text-[#667085] mt-2 max-w-xl">
+              Reliable tools designed to get your vehicle inspected, diagnosed, and repaired on the roadside.
             </p>
           </div>
 
           <Link
             href="/customers"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#FFD400] hover:text-[#E5BE00] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#142235] hover:text-[#D6A84F] transition-colors"
           >
             <span>Explore Customer Portal</span>
             <ArrowRight className="w-4 h-4" />
@@ -58,23 +58,23 @@ export function CustomerFeaturesSection() {
             return (
               <div
                 key={item.id}
-                className="bg-[#131313] border border-[#242424] hover:border-[#FFD400]/40 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl group"
+                className="bg-[#F7F8FA] border border-[#E6E9EF] hover:border-[#142235]/40 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs group"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#1B1B1B] border border-[#2D2D2D] flex items-center justify-center text-[#FFD400] group-hover:bg-[#FFD400] group-hover:text-[#080808] transition-colors">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E9EF] flex items-center justify-center text-[#142235] group-hover:bg-[#142235] group-hover:text-white transition-colors shadow-2xs">
+                    <Icon className="w-5 h-5 text-[#D6A84F]" />
                   </div>
                   {item.tag && (
-                    <span className="text-[10px] uppercase font-bold text-neutral-400 bg-white/5 px-2 py-0.5 rounded">
+                    <span className="text-[10px] uppercase font-bold text-[#667085] bg-white px-2 py-0.5 rounded border border-[#E6E9EF]">
                       {item.tag}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#FFD400] transition-colors">
+                <h3 className="text-base font-bold text-[#142235] mb-2 font-heading">
                   {item.title}
                 </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">
+                <p className="text-xs text-[#667085] leading-relaxed">
                   {item.description}
                 </p>
               </div>

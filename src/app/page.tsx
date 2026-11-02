@@ -15,12 +15,12 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: `${siteConfig.name} – Your Mechanic, Just Around the Corner`,
   description:
-    "Vehicle breakdown? Find nearby mechanics, request vehicle assistance and track your service in real time with MECHFIND. Fast roadside assistance for cars and bikes.",
+    "Breakdowns happen. Finding help shouldn't. Discover nearby mechanics, request roadside assistance and stay connected with MECHFIND. Fast roadside assistance for cars and bikes.",
 };
 
 export default function HomePage() {
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col bg-[#F7F8FA]">
       {/* 1. Hero Section */}
       <HeroSection />
 
@@ -36,18 +36,18 @@ export default function HomePage() {
       {/* 5. Mechanic Features Section */}
       <MechanicFeaturesSection />
 
-      {/* 6. Live Tracking Section */}
-      <section className="py-20 sm:py-28 bg-[#0B0B0B] border-t border-[#1C1C1C] relative">
+      {/* 6. Tracking Showcase Section */}
+      <section className="py-20 sm:py-24 bg-white border-b border-[#E6E9EF] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#FFD400] bg-[#FFD400]/10 px-3 py-1 rounded-full border border-[#FFD400]/20">
-              Interactive Showcase
+            <span className="text-xs uppercase font-extrabold tracking-widest text-[#D6A84F] bg-[#FBF4E7] px-3.5 py-1 rounded-full border border-[#D6A84F]/25">
+              Interface Preview
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-3 tracking-tight">
-              Real-Time Mechanic Tracking Showcase
+            <h2 className="text-2xl sm:text-4xl font-black text-[#142235] mt-3 tracking-tight font-heading">
+              Tracking & Dispatch Interface
             </h2>
-            <p className="text-sm sm:text-base text-neutral-400 mt-2 leading-relaxed">
-              Experience the clarity of live map tracking. Know exactly who is coming, their route, and their live ETA before they arrive.
+            <p className="text-sm sm:text-base text-[#667085] mt-2 leading-relaxed">
+              Illustrating the mobile map interface: discover who is approaching, follow simulated route progress, and monitor estimated arrival times.
             </p>
           </div>
 

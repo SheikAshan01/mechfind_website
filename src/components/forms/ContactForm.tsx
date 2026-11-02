@@ -43,34 +43,36 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-[#121212] border border-[#262626] rounded-3xl p-6 sm:p-9 shadow-xl">
-      <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Send Us a Message</h3>
-      <p className="text-sm text-neutral-400 mb-6">
-        Have questions regarding our roadside platform, partnerships, or press inquiries? Let us know.
+    <div className="bg-white border border-[#E6E9EF] rounded-3xl p-6 sm:p-9 shadow-sm">
+      <h3 className="text-xl sm:text-2xl font-black text-[#142235] mb-2 font-heading">
+        Send Us a Message
+      </h3>
+      <p className="text-sm text-[#667085] mb-6">
+        Have questions regarding our roadside platform, partnerships, or general inquiries?
       </p>
 
       {submittedNotice ? (
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-[#1a180e] border border-[#FFD400]/40 rounded-2xl p-5 space-y-3"
+          className="bg-[#FBF4E7] border border-[#D6A84F]/40 rounded-2xl p-5 space-y-3"
         >
           <div className="flex items-start gap-3">
-            <Info className="w-5 h-5 text-[#FFD400] shrink-0 mt-0.5" />
+            <Info className="w-5 h-5 text-[#D6A84F] shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-white text-sm mb-1">
+              <h4 className="font-bold text-[#142235] text-sm mb-1 font-heading">
                 Notice: Pre-Launch Staging Endpoint
               </h4>
-              <p className="text-xs text-neutral-300 leading-relaxed mb-3">
-                Thank you, {formData.name}. Your inquiry has passed form validation. Note that our web submission gateway is currently staging prior to public commercial rollout.
+              <p className="text-xs text-[#475467] leading-relaxed mb-3">
+                Thank you, {formData.name}. Your inquiry details have passed client validation. Our production messaging gateway is currently in pre-launch staging.
               </p>
-              <p className="text-xs text-neutral-400">
+              <p className="text-xs text-[#667085]">
                 For immediate responses, please contact us directly at{" "}
-                <a href={`mailto:${contactConfig.contactEmail}`} className="text-[#FFD400] underline">
+                <a href={`mailto:${contactConfig.contactEmail}`} className="text-[#142235] font-semibold underline">
                   {contactConfig.contactEmail}
                 </a>{" "}
                 or phone{" "}
-                <a href={contactConfig.telLink} className="text-[#FFD400] underline font-bold">
+                <a href={contactConfig.telLink} className="text-[#142235] font-bold underline">
                   {contactConfig.phone}
                 </a>.
               </p>
@@ -79,7 +81,7 @@ export function ContactForm() {
           <button
             type="button"
             onClick={() => setSubmittedNotice(false)}
-            className="text-xs font-semibold text-neutral-300 hover:text-white px-3 py-1.5 bg-[#252525] rounded-lg mt-2"
+            className="text-xs font-semibold text-[#142235] hover:text-[#1D3048] px-3 py-1.5 bg-white border border-[#E6E9EF] rounded-lg mt-2 cursor-pointer"
           >
             Reset Form
           </button>
@@ -87,7 +89,7 @@ export function ContactForm() {
       ) : (
         <form onSubmit={handleSubmit} noValidate className="space-y-4">
           <div>
-            <label htmlFor="contact-name" className="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
+            <label htmlFor="contact-name" className="block text-xs font-semibold text-[#142235] uppercase tracking-wider mb-1.5">
               Your Name
             </label>
             <input
@@ -99,17 +101,17 @@ export function ContactForm() {
                 if (errors.name) setErrors({ ...errors, name: "" });
               }}
               placeholder="e.g. Rachel Adams"
-              className={`w-full bg-[#181818] border rounded-xl py-2.5 px-4 text-sm text-white placeholder-neutral-500 outline-none transition-all ${
+              className={`w-full bg-[#F7F8FA] border rounded-xl py-2.5 px-4 text-sm text-[#172334] placeholder-[#98A2B3] outline-none transition-all ${
                 errors.name
-                  ? "border-red-500"
-                  : "border-[#2b2b2b] focus:border-[#FFD400]"
+                  ? "border-red-500 focus:bg-white"
+                  : "border-[#E6E9EF] focus:bg-white focus:border-[#142235]"
               }`}
             />
-            {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name}</p>}
+            {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
           </div>
 
           <div>
-            <label htmlFor="contact-email" className="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
+            <label htmlFor="contact-email" className="block text-xs font-semibold text-[#142235] uppercase tracking-wider mb-1.5">
               Email Address
             </label>
             <input
@@ -121,17 +123,17 @@ export function ContactForm() {
                 if (errors.email) setErrors({ ...errors, email: "" });
               }}
               placeholder="e.g. rachel@example.com"
-              className={`w-full bg-[#181818] border rounded-xl py-2.5 px-4 text-sm text-white placeholder-neutral-500 outline-none transition-all ${
+              className={`w-full bg-[#F7F8FA] border rounded-xl py-2.5 px-4 text-sm text-[#172334] placeholder-[#98A2B3] outline-none transition-all ${
                 errors.email
-                  ? "border-red-500"
-                  : "border-[#2b2b2b] focus:border-[#FFD400]"
+                  ? "border-red-500 focus:bg-white"
+                  : "border-[#E6E9EF] focus:bg-white focus:border-[#142235]"
               }`}
             />
-            {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
+            {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
           </div>
 
           <div>
-            <label htmlFor="contact-subject" className="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
+            <label htmlFor="contact-subject" className="block text-xs font-semibold text-[#142235] uppercase tracking-wider mb-1.5">
               Subject
             </label>
             <input
@@ -142,18 +144,18 @@ export function ContactForm() {
                 setFormData({ ...formData, subject: e.target.value });
                 if (errors.subject) setErrors({ ...errors, subject: "" });
               }}
-              placeholder="e.g. Workshop Fleet Partnership Inquiry"
-              className={`w-full bg-[#181818] border rounded-xl py-2.5 px-4 text-sm text-white placeholder-neutral-500 outline-none transition-all ${
+              placeholder="e.g. Fleet Assistance Partnership Inquiry"
+              className={`w-full bg-[#F7F8FA] border rounded-xl py-2.5 px-4 text-sm text-[#172334] placeholder-[#98A2B3] outline-none transition-all ${
                 errors.subject
-                  ? "border-red-500"
-                  : "border-[#2b2b2b] focus:border-[#FFD400]"
+                  ? "border-red-500 focus:bg-white"
+                  : "border-[#E6E9EF] focus:bg-white focus:border-[#142235]"
               }`}
             />
-            {errors.subject && <p className="text-xs text-red-400 mt-1">{errors.subject}</p>}
+            {errors.subject && <p className="text-xs text-red-500 mt-1">{errors.subject}</p>}
           </div>
 
           <div>
-            <label htmlFor="contact-message" className="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
+            <label htmlFor="contact-message" className="block text-xs font-semibold text-[#142235] uppercase tracking-wider mb-1.5">
               Message
             </label>
             <textarea
@@ -165,25 +167,25 @@ export function ContactForm() {
                 if (errors.message) setErrors({ ...errors, message: "" });
               }}
               placeholder="How can we assist you today?..."
-              className={`w-full bg-[#181818] border rounded-xl py-2.5 px-4 text-sm text-white placeholder-neutral-500 outline-none transition-all resize-y ${
+              className={`w-full bg-[#F7F8FA] border rounded-xl py-2.5 px-4 text-sm text-[#172334] placeholder-[#98A2B3] outline-none transition-all resize-y ${
                 errors.message
-                  ? "border-red-500"
-                  : "border-[#2b2b2b] focus:border-[#FFD400]"
+                  ? "border-red-500 focus:bg-white"
+                  : "border-[#E6E9EF] focus:bg-white focus:border-[#142235]"
               }`}
             />
-            {errors.message && <p className="text-xs text-red-400 mt-1">{errors.message}</p>}
+            {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full flex items-center justify-center gap-2 bg-[#FFD400] hover:bg-[#E5BE00] text-[#080808] font-bold py-3 px-5 rounded-xl text-sm transition-all shadow-[0_2px_15px_-3px_rgba(255,212,0,0.35)] cursor-pointer disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 bg-[#142235] hover:bg-[#1D3048] text-white font-semibold py-3 px-5 rounded-xl text-sm transition-all shadow-xs cursor-pointer disabled:opacity-50"
           >
             {isSubmitting ? (
               <span>Validating...</span>
             ) : (
               <>
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 text-[#D6A84F]" />
                 <span>Send Message</span>
               </>
             )}
